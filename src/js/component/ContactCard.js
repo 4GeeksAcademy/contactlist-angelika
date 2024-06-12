@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 export const ContactCard = ({ contact, updateContact, deleteContact }) => {
+    if (!contact) {
+        return null;
+    }
     const [isEditing, setIsEditing] = useState(false);
     const [updatedContact, setUpdatedContact] = useState(contact);
 

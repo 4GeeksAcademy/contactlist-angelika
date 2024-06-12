@@ -4,6 +4,31 @@ const getState = ({ getStore, getActions, setStore }) => {
             contacts: []
         },
         actions: {
+            createAgenda: async () => {
+                const slug = "Agenda Angelika";
+                try {
+                    const resp = await fetch('https://playground.4geeks.com/contact/agendas', {
+                        method: 'POST',
+                        headers: {
+                            "Content-Type": "application/json",
+                            "accept": "application/json"
+                        },
+                        body: JSON.stringify({
+                            agenda_slug: slug,
+                            name: "Angelika's Contacts"
+                        })
+                    });
+                    if (resp.ok) {
+                        const newAgenda = await resp.json();
+                        console.log("Agenda agregada correctamente:", newAgenda);
+                    } else {
+                        console.error("Error al intentar agregar una agenda");
+                    }
+                } catch (error) {
+                    console.error("Error al intentar agregar una agenda:", error);
+                }
+            },
+            
             getContact: async () => {
                 try {
                     const resp = await fetch('https://playground.4geeks.com/contact/agendas/Agenda%20Angelika/contacts', {
@@ -17,8 +42,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         throw new Error(`HTTP error! status: ${resp.status}`);
                     }
                     const data = await resp.json();
-                    if (data.contacts && Array.isArray(data.contacts)) {
-                        setStore({ contacts: data.contacts });
+                    if (data && Array.isArray(data)) {
+                        setStore({ contacts: data });
                         console.log("Contacts updated in store:", getStore().contacts);
                     } else {
                         console.error("La respuesta de la API no contiene un array de contactos:", data);
@@ -27,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.error(err);
                 }
             },
-			
+            
             addContact: async (contact) => {
                 try {
                     const resp = await fetch('https://playground.4geeks.com/contact/agendas/Agenda%20Angelika/contacts', {
@@ -38,11 +63,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                         },
                         body: JSON.stringify(contact)
                     });
-            
                     if (resp.ok) {
                         const newContact = await resp.json();
                         setStore({ contacts: [...getStore().contacts, newContact] });
-                        console.log("Contacto agregado correctamente:", newContact);
+                        console.log("Contacto agregado correctamente:");
                     } else {
                         console.error("Error al intentar agregar un contacto");
                     }
@@ -57,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
-							"accept": "application/json"
+                            "accept": "application/json"
                         },
                         body: JSON.stringify(updatedContact)
                     });
