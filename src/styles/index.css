@@ -26,3 +26,11 @@ i {
     color:rgb(251, 0, 0);
     cursor: pointer;
 }
+
+.notfound {
+    background-color: #f0f0f0!important;
+}
+
+.tx-notfound {
+    font-size: 1em;
+}

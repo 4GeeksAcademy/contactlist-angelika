@@ -10,19 +10,23 @@ export const Contact = () => {
     }, []);
 
     return (
-        <div className="d-flex justify-content-center flex-column align-items-center">
-            {Array.isArray(store.contacts) && store.contacts.length > 0 ? (
-                store.contacts.map(contact => (
-                    <ContactCard
-                        key={contact.id}
-                        contact={contact}
-                        updateContact={actions.updateContact}
-                        deleteContact={actions.deleteContact}
-                    />
-                ))
-            ) : (
-                <p>La lista de contactos está vacia</p>
-            )}
-        </div>
+        <>
+            <Navbar />
+            <div className="d-flex justify-content-center flex-column align-items-center">
+                {Array.isArray(store.contacts) && store.contacts.length > 0 ? (
+                    store.contacts.map(contact => (
+                        <ContactCard
+                            key={contact.id}
+                            contact={contact}
+                            updateContact={actions.updateContact}
+                            deleteContact={actions.deleteContact}
+                        />
+                    ))
+                ) : (
+                    <p>La lista de contactos está vacia</p>
+                )}
+            </div>
+        </>
+        
     );
 };

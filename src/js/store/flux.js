@@ -14,8 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             "accept": "application/json"
                         },
                         body: JSON.stringify({
-                            agenda_slug: slug,
-                            name: "Angelika's Contacts"
+                            agenda_slug: slug
                         })
                     });
                     if (resp.ok) {
