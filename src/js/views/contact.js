@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { ContactCard } from "../component/ContactCard";
+import { Navbar } from "../component/Navbar";
 
 export const Contact = () => {
     const { store, actions } = useContext(Context);

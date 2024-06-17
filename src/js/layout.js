@@ -3,11 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Contact } from "./views/Contact";
-import { AddContact } from "./views/AddContact"
+import { Contact } from "./views/contact";
+import { AddContact } from "./views/addContact";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import { Navbar } from "./component/Navbar";
 import { Footer } from "./component/footer";
 import { NotFound } from "./component/NotFound";
 

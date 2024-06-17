@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             createAgenda: async () => {
                 const slug = "Agenda Angelika";
                 try {
-                    const resp = await fetch('https://playground.4geeks.com/contact/agendas', {
+                    const resp = await fetch('https://playground.4geeks.com/contact/agendas/', {
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             
             getContact: async () => {
                 try {
-                    const resp = await fetch('https://playground.4geeks.com/contact/agendas/Agenda%20Angelika/contacts', {
+                    const resp = await fetch('https://playground.4geeks.com/contact/agendas/Agenda%20Angelika', {
                         method: 'GET',
                         headers: {
                             "Content-Type": "application/json",
