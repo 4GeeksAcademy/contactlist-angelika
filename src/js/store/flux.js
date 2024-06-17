@@ -5,9 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         actions: {
             createAgenda: async () => {
-                const slug = "Agenda Angelika";
                 try {
-                    const resp = await fetch('https://playground.4geeks.com/contact/agendas/', {
+                    const resp = await fetch('https://playground.4geeks.com/contact/agendas/Angelika', {
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json",
@@ -30,7 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             
             getContact: async () => {
                 try {
-                    const resp = await fetch('https://playground.4geeks.com/contact/agendas/Agenda%20Angelika', {
+                    const resp = await fetch('https://playground.4geeks.com/contact/agendas/Angelika', {
                         method: 'GET',
                         headers: {
                             "Content-Type": "application/json",
@@ -54,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             
             addContact: async (contact) => {
                 try {
-                    const resp = await fetch('https://playground.4geeks.com/contact/agendas/Agenda%20Angelika/contacts', {
+                    const resp = await fetch('https://playground.4geeks.com/contact/agendas/Angelika/contacts', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -76,7 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             updateContact: async (contactId, updatedContact) => {
                 try {
-                    const resp = await fetch(`https://playground.4geeks.com/contact/agendas/Agenda%20Angelika/contacts/${contactId}`, {
+                    const resp = await fetch(`https://playground.4geeks.com/contact/agendas/Angelika/contacts/${contactId}`, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
@@ -103,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             deleteContact: async (contactId) => {
                 try {
-                    const resp = await fetch(`https://playground.4geeks.com/contact/agendas/Agenda%20Angelika/contacts/${contactId}`, {
+                    const resp = await fetch(`https://playground.4geeks.com/contact/agendas/Angelika/contacts/${contactId}`, {
                         method: 'DELETE',
                         headers: {
                             "Content-Type": "application/json",
